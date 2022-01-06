@@ -1,0 +1,363 @@
+<div id="mask"></div>
+<div id="deleteConfirmPopin"  style="display: none;">
+	<p class="confirmMessage">{{wa_delete_confirm}}</p><br/>
+	<div class="submit">
+		<a id="deleteConfirm" class="btn" href="#">{{wa_yes}}</a>
+		<a id="deleteCancel" class="btn" href="#">{{wa_no}}</a>
+	</div>
+</div>
+<div id="informationPopin"  style="display: none;">
+	<p class="message"></p><br/>
+	<div class="submit">
+		<a id="informationPopinOk" class="btn" href="#">{{ok}}</a>
+	</div>
+</div>
+
+<div id="sharingMailPopin"  style="display: none;">
+	<p class="message">{{wa_enter_mail}} :</p>
+	<div id="sharingMailInputContainer">
+		<input id="emailList" type="text" placeholder=""/>
+	</div>
+	<div class="errorMessage"></div> 
+	<div class="submit">
+		<a id="shareConfirm" class="btn" href="#">{{wa_share_btn_yes}}</a>
+		<a id="shareCancel" class="btn" href="#">{{wa_share_btn_no}}</a>
+	</div>
+</div>
+<div id="noSdCardContainer" class="fileManagerPart" style="display: none;">
+    <h2>
+    	<span class="headerTitle">{{wa_my_contents}}</span>
+    </h2>
+    <div class="border">
+    	<!-- <p class="desc">
+    		{{wa_no_sdcard}}
+    	</p>  -->
+    </div>
+    <div id="cloudLinkContainer" class="cloud">
+        <h3 id="cloud_h">{{orange_cloud}}</h3>
+       	<a class="cloud_homepage" role="button" title="{{orange_cloud_explanatory_text_message}}" target="_tab">{{wa_orange_cloud}}</a>
+	</div>
+</div>
+<div id="cloudSendContainer" class="fileManagerPart"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle">{{wa_send_to_cloud}}</span>
+    </h2>
+    <div class="border">
+    	<div class="scroll-pane">
+            <div class="scrollContent">
+		        <h3 class="cloud">
+		            <span>{{wa_orange_cloud}}</span>
+		        </h3>
+		        <form id="cloud_send_files" action="#" method="post" class="fileForm"> 
+		        	<input id="files" name="files" type="hidden" />
+		        	
+		            <p class="cloudConnectedAs fxBorPadFirst2">
+		            	{{wa_connected_as}} <span class="cloudConnected"></span>
+		            	<a href="#cloud-logout">{{wa_log_out}}</a>
+		            </p>
+		
+		            <div class="fxBorPad">
+		            	{{wa_cloud_send_desc}} &laquo;<span class="currentPath"></span>&raquo;
+						<ul class="file-list-to-send"></ul>
+						<br/>
+						<div id="switchSharingByMailContainer">
+	                    	<a id="switchSharingByMail" class="switch" href="#"></a>
+	                    	<span>{{wa_do_you_want_sharing_by_mail}}</span>
+						</div>
+		            </div>
+		            <div class="warnSizeContent">
+		            	{{wa_warn_selection_file_size}} : (<span class="warnSize"></span>)
+		            	{{wa_warn_continue}}
+		            </div>
+		            <div class="fxBorPadLast">
+		            	<a class="btn" href="#" id="cloudSendSubmit">{{wa_submit}}</a>
+		            	<a class="btn" href="#wa-history-back">{{wa_cancel}}</a>
+		            	<div class="progressContainer">
+		            		{{wa_progress}} <span class="progress">0</span> %
+		            	</div>
+		            </div>
+		        </form>
+			</div>
+		</div>
+    </div>
+</div>
+<div id="cloudSettingsContainer" class="fileManagerPart" style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle">{{wa_cloud_settings}}</span>
+    </h2>
+    <div class="border">
+        <h3 class="cloud">
+            <span>{{wa_orange_cloud}}</span>
+        </h3>
+		<form id="cloudReceiveFiles" method="post" enctype="multipart/form-data" class="fileForm"> 
+            <p class="cloudConnectedAs">
+            	{{wa_connected_as}} <span></span>
+            	<a href="#cloud-logout">{{wa_log_out}}</a>
+            </p>
+			<p class="fxBorPadFirst">
+            	<a class="btn" href="#" id="goToCloudExplorer">{{wa_cloud_browse}}</a>
+            </p>
+            <p id="goToDeviceExplorerContainer" class="fxBorPadLast">
+            	{{wa_cloud_upload_desc}}<br/><br/>
+			 	<input id="goToDeviceExplorerInput" name="file" type="file" class="fileInput"/>
+            	<a class="btn" href="#" id="goToDeviceExplorer">{{wa_upload_browse_button}}</a>
+            	<span class="chosenFile" rel="goToDeviceExplorerInput"></span>
+            	<br/>
+            	<a class="btn btn-submit" href="#" id="cloudReceiveSubmit" rel="goToDeviceExplorerInput">{{wa_submit}}</a>
+            	<div class="progressContainer">
+            		{{wa_progress}}<span class="progress">0</span> %
+            	</div>
+            </p>
+        </form>
+    </div>
+</div>
+<div id="folderAddContainer" class="fileManagerPart"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle">{{wa_add_folder}}</span>
+    </h2>
+    <div class="border">
+		<form id="folderAddForm" method="post" class="fileForm"> 
+			<p class="fxBorPadFirst">
+            	{{wa_add_folder_desc}}<br/>&laquo; <span class="currentPath"></span> &raquo;
+            </p>
+            <p id="goToDeviceExplorerContainer" class="fxBorPad">
+            	<label for="folderName">{{wa_folder_name}}</label><br/>
+			 	<input id="folderName" name="folderName" type="text"/>
+            </p>
+            <p class="fxBorPadLast">
+    			<a class="btn" href="#" id="folderAddSubmit">{{wa_submit}}</a>
+    		</p>
+        </form>
+    </div>
+</div>
+<div id="addFileContainer" class="fileManagerPart"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle">{{wa_add_file}}</span>
+    </h2>
+    <div class="border">
+		<form id="addFileInAirbox" method="post" enctype="multipart/form-data" class="fileForm"> 
+            <p id="addFileInAirboxContainer" class="fxBorPadFirst">
+            	{{wa_add_file_desc}} ({{wa_folder}} : &laquo; <span class="currentPath"></span> &raquo;)<br/><br/>
+			 	<input id="addFileInAirboxInput" name="uploadfile" type="file" class="fileInput" />
+            	<a class="btn" href="#" id="addFileInAirboxBrowse">{{wa_upload_browse_button}}</a>
+            	<span class="chosenFile" rel="addFileInAirboxInput"></span>
+            	<a class="btn btn-submit" href="#" id="addFileInAirboxSubmit" rel="addFileInAirboxInput">{{wa_submit}}</a>
+    			<div class="progressContainer">
+            		{{wa_progress}} <span class="progress">0</span> %
+            	</div>
+            </p>
+            <p id="cloudBrowseContainer" class="fxBorPadLast cloudRelative">
+    			{{wa_import_from_cloud}}<br/><br/>
+    			<a class="btn" href="#" id="goToCloudExplorer">{{wa_cloud_browse}}</a>
+    		</p>	
+        </form>
+    </div>
+</div>
+<div id="airboxSendContainer" class="fileManagerPart"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle">{{wa_send_to_airbox}}</span>
+    </h2>
+    <div class="border">
+        <div class="scroll-pane">
+            <div class="scrollContent">
+		        <h3 class="cloud">
+		            <span>{{wa_orange_cloud}}</span>
+		        </h3>
+		        <form id="cloud_send_files" action="#" method="post" class="fileForm"> 
+		        	<input id="files" name="files" type="hidden" />
+		            <div class="fxBorPad">
+		            	{{wa_airbox_send_desc}} &laquo; <span class="currentPath"></span> &raquo; :
+		            	<ul class="file-list-to-send"></ul>
+		            </div>
+		            
+		            <div class="fxBorPadLast">
+		            	<a class="btn" href="#" id="airboxSendSubmit">{{wa_submit}}</a>
+		            	<div class="progressContainer">
+		            		{{wa_progress}}<span class="progress">0</span> %
+		            	</div>
+		            </div>
+		        </form>
+		     </div>
+		 </div>
+    </div>
+</div>
+<div id="previewableFileContainer" class="fileManagerPart imageContent"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle"></span>
+    </h2>
+    <div class="nailthumb-container showPicture">
+        <img src=""/>
+    </div>
+</div>
+<div id="filePartTemplate" class="fileManagerPart"  style="display: none;">
+    <h2 class="withButton">
+        <a class="headerSlideButton" href="#wa-history-back"></a>
+        <span class="headerTitle"></span>
+
+		<a class="folderAdd airboxOnly" title="{{wa_folder_add_link}}"></a> 
+		<a class="fileAdd airboxOnly" title="{{wa_file_add_link}}"></a>
+
+    </h2>
+    <div class="border">
+        <div class="fileListContainer">
+        </div>
+    </div>
+</div>
+<div id="guestHomepageContainer" class="fileManagerPart" style="display: none;">
+    <h2 class="withButton">
+    	<span class="headerTitle">{{wa_my_contents}}</span>
+    	<a id="cloudSettings" href="#cloudSettings" title="{{wa_cloud_settings}}" class="cloudRelative"></a>
+    	<a class="settings externals" title="{{wa_connect}}" href="#"></a>
+		<a class="folderAdd airboxOnly" title="{{wa_folder_add_link}}"></a>
+		<a class="fileAdd airboxOnly" title="{{wa_file_add_link}}"></a>
+    </h2>
+    <div class="border">
+    	<div class="scroll-pane withCloudLink">
+            <div class="scrollContent">
+		    	<p class="desc fxBorPadFirst">
+					{{wa_not_connected}}<br/>
+					<a class="login" href="#">{{wa_guest_connect}}</a> {{wa_guest_connect_desc}}
+				</p>
+		    	<p id="guestNotAvailableDesc" class="fxBorPadLast desc">
+		        	{{wa_sharing_disabled}} 
+		        </p>
+            	<div class="nailthumb-list">
+                    <h4>{{wa_photographs}}</h4>
+                    <div id="thumbContainer"></div>
+                </div>
+				<div class="fileListContainer">
+                	<h4>{{wa_all_documents}}</h4>
+               	</div>
+            </div>
+        </div>
+   		<div id="cloudLinkContainer" class="cloud">
+			<h3 id="cloud_h">{{orange_cloud}}</h3>
+			<a class="cloud_homepage" role="button" title="{{orange_cloud_explanatory_text_message}}" target="_tab">{{wa_orange_cloud}}</a>
+		</div>
+    </div>
+</div>
+<div id="connectedHomepageContainer" class="fileManagerPart"  style="display: none;">
+    <h2>{{wa_my_contents}}</h2>
+    <a id="cloudSettings" href="#cloudSettings" title="{{wa_cloud_settings}}" class="cloudRelative"></a>
+    <a href="/html/sdcardsharing.html" title="{{wa_settings}}" class="settings externals"></a>
+    <div class="border">
+        <div class="scroll-pane withCloudLink">
+            <div class="scrollContent">
+            	<div id="switchContainer">
+	                <div id="webAccessContainer" class="switchContainer">
+	                    <span class="bbText">{{wa_web_access}}</span>
+	                    <div class="switchRightContainer">
+	                        <a id="switchWebAccess" class="switch" href="#"></a>
+	                    </div>
+	                </div>
+	                <div id="shareContentContainer" class="switchContainer">
+	                    <span class="bbText">{{wa_share_content}}</span>
+	                    <div class="switchRightContainer">
+	                        <a id="switchShareContent" class="switch" href="#"></a>
+	                    </div>
+	                </div>
+	                <div class="clearfix"></div>
+                </div>
+                <div id="webAccessDescriptionContainer" class="fxBorPad switchWebAccessOffDependant">
+                    {{wa_description}}
+                </div>
+                <div class="switchWebAccessOnDependant"> 
+                    <div id="myContentsOverview" class="slideButtonContainer">
+                        <a class="slideButton">
+                        	<div id="myContentsOverviewInfos">
+                            	{{wa_contents}} <br/>
+                            	<span id="usedSize"></span> / <span id="availableSize"></span>
+                            </div> 
+                            <div class="bar">
+                                <div class="progress" data-percent=""></div>  
+                            </div> 
+                        </a>
+                    </div>	
+
+                    <div class="nailthumb-list">
+                        <h4>{{wa_photographs}}</h4>
+                        <div id="thumbContainer"></div>
+                    </div>
+                    
+                    <div class="fileListContainer">
+                        <h4>{{wa_all_documents}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div id="cloudLinkContainer" class="cloud">
+			<h3 id="cloud_h">{{orange_cloud}}</h3>
+			<a class="cloud_homepage" role="button" title="{{orange_cloud_explanatory_text_message}}" target="_tab">{{wa_orange_cloud}}</a>
+		</div>
+    </div>
+</div>
+<div id="notSupportedContainer" class="fileManagerPart"  style="display: none;">
+    <h2>{{wa_my_contents}}</h2>
+    <a href="/html/sdcardsharing.html" title="{{wa_settings}}" class="settings externals"></a>
+    <div class="border">
+		<p class="notSupportedNavigator">
+			{{wa_not_supported_navigator}}
+		</p>
+    </div>
+</div>
+
+<div id="popinActions" style="display: none;">
+    <ul>
+        <li>
+            <a id="downloadFile" href="#">
+                {{wa_popin_download}}
+            </a>
+        </li>
+        <li class="cloudOnly lastActions cloudRelative">
+            <a id="sendToAirbox" href="#">
+                {{wa_popin_send_airbox}}
+            </a>
+        </li>
+        <li class="airboxOnly notGuest cloudRelative">
+            <a id="sendToCloud" href="#" >
+                {{wa_popin_send_cloud}}
+            </a>
+        </li>
+        <li class="readWriteOnly airboxOnly lastActions">
+            <a id="fileDelete" href="#">
+                {{wa_popin_remove}}
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="waLoader" style="display: none;">
+	<div id="imgContainer">
+		<img src="img/wa-loader.gif" /><br/>
+		{{wa_loading}}
+	</div>
+</div>¼#³Sß      a×V2a×V2CÑ}¦       `    O^partitionKey=%28http%2C192.168.1.1%29,:http://192.168.1.1/home/js/blocks/webaccess-module.html necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Thu, 01 Jan 1970 00:00:00 GMT
+Server: webserver
+X-Download-Options: noopen
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains
+Content-Length: 13887
+Content-Type: text/html
+Expires: 0
+Cache-Control: no-cache
+ original-response-headers Date: Thu, 01 Jan 1970 00:00:00 GMT
+Server: webserver
+Connection: keep-alive
+Keep-Alive: timeout=10, max=100
+X-Download-Options: noopen
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubdomains
+Content-Length: 13887
+Content-Type: text/html
+Expires: 0
+Cache-Control: no-cache
+Set-Cookie: SessionID=2nm/r3kTtbyoOO9fdIhmgRWZJNa8gesoIsDQOBF/VL181d/MWFSu9ipUCisstOtpTte9/X1nJ8IzENI/0S6VB2b21mZOxkhJUv8mn3GUoNopxV8ij6C+0JtCAqimlOXS;path =/;HttpOnly;
+ ctid 1 uncompressed-len 0 net-response-time-onstart 31 net-response-time-onstop 32   6?
